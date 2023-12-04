@@ -1,0 +1,103 @@
+<section class="num-matricula">
+  <div class="digite-matricula">
+    <mat-form-field>
+      <mat-label> Matrícula </mat-label>
+      <input type="text" matInput [(ngModel)]="matricula" (keyup.enter)="getAlunoByMatricula()">
+    </mat-form-field>
+  </div>
+  <div class="pesquisar">
+    <button mat-raised-button color="primary" (click)="getAlunoByMatricula()"> Pesquisar </button>
+  </div>
+
+  <div *ngIf="isFirstVerification; else infoAlunoTP" class="first-open">
+    Digite o número da matrícula do aluno para pesquisar suas informações!
+  </div>
+
+  <ng-template #infoAlunoTP>
+    <div *ngIf="!isLoadingAluno; else spinner" class="content">
+
+      <ng-container *ngIf="!isError; else isErrorTP">
+        <div class="element">
+          <h6> Dados básicos </h6>
+          <hr>
+          <div>
+            <span class="span-label"> Nome: </span> <span> {{ aluno.TxNome }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Data de nascimento: </span> <span> {{ aluno.DtNascimento | date: 'dd/MM/yyyy' }}
+            </span>
+          </div>
+          <div>
+            <span class="span-label"> Sexo: </span> <span> {{ aluno.TxGenero === 'Male' ? 'Masculino' : 'Feminino' }}
+            </span>
+          </div>
+        </div>
+    
+        <div class="element">
+          <h6> Matrícula </h6>
+          <hr>
+          <div>
+            <span class="span-label"> Curso: </span> <span> {{ aluno.TxCurso }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Data de matrícula: </span> <span> {{ aluno.DtMatricula | date: 'dd/MM/yyyy' }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Status: </span> <span [ngClass]="{ 'text-green': aluno.TxStatusMatricula === 'Aberta', 'text-yellow': aluno.TxStatusMatricula === 'Em andamento', 'text-red': aluno.TxStatusMatricula === 'Fechada', 'text-gray': aluno.TxStatusMatricula === 'Encerrada' }"> {{ aluno.TxStatusMatricula }} </span>
+          </div>
+        </div>
+        
+        <div class="element">
+          <h6> Endereço </h6>
+          <hr>
+          <div>
+            <span class="span-label"> CEP: </span> <span> {{ aluno.TxCep }} </span>
+          </div>
+          <div>
+            <span class="span-label"> UF: </span> <span> {{ aluno.TxUF }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Cidade: </span> <span> {{ aluno.TxCidade }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Rua: </span> <span> {{ aluno.TxRua }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Número: </span> <span> {{ aluno.TxNro }} </span>
+          </div>
+        </div>
+    
+        <div class="element">
+          <h6> Contato </h6>
+          <hr>
+          <div>
+            <span class="span-label"> Telefone 1: </span> <span> {{ aluno.TxFone1 }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Telefone 2: </span> <span> {{ aluno.TxFone2 }} </span>
+          </div>
+          <div>
+            <span class="span-label"> E-mail: </span> <span> {{ aluno.TxEmail }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Mãe: </span> <span> {{ aluno.TxNomeMae }} </span>
+          </div>
+          <div>
+            <span class="span-label"> Pai: </span> <span> {{ aluno.TxNomePai }} </span>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #isErrorTP>
+        <div class="error"> Nenhum aluno foi encontrado com esta matrícula! </div>
+      </ng-template>
+    </div>
+  
+    <ng-template #spinner>
+      <div class="spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</section>

@@ -1,0 +1,40 @@
+section.header {
+  height: 10vh;
+  background-color: #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 4px 0 #CCCCCC;
+}
+
+h1.title {
+  margin-bottom: 0;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+section.footer {
+  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  background-color: #CCCCCC;
+  box-shadow: 4px 0 0 4px #CCCCCC;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  >span {
+    color: #3f51b5;
+    font-size: 16px;
+  }
+
+  >span.desenvolvido {
+    font-weight: 700;
+  }
+
+  >span.integrantes {
+    margin-right: 24px;
+    font-style: italic;
+  }
+}

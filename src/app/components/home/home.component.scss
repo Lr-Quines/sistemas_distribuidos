@@ -1,0 +1,111 @@
+section.num-matricula {
+  padding: 24px;
+
+  >div.digite-matricula {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >mat-form-field {
+      width: 50%;
+    }
+  }
+
+  .pesquisar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.content {
+  margin-top: 48px;
+  display: flex;
+
+  >div:not(:last-child) {
+    padding-right: 16px;
+  }
+
+  >div:not(:first-child) {
+    padding-left: 16px;
+  }
+
+  >div.element {
+    width: 25%;
+
+    >hr {
+      border: 1px solid #3f51b5;
+    }
+
+    >div {
+      margin-top: 16px;
+    }
+  }
+
+  h6 {
+    color: #3f51b5;
+    font-size: 20px;
+  }
+}
+
+.span-label {
+  font-weight: 600;
+}
+
+div.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  font-size: 16px;
+}
+
+.text-green {
+  background-color: #198754;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.text-yellow {
+  background-color: #ffc107;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.text-red {
+  background-color: #dc3545;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.text-gray {
+  background-color: #CDCDCD;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+div.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+div.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #dc3545;
+  font-size: 20px;
+}
+
+div.first-open {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
